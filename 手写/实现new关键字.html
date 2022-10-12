@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现new关键字</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function objectFactory() {
+        let obj = new Object()
+        Constructor = [].shift.call(arguments) //由于arguments是个伪数组它没有数组方法所以通过空数组去原型找到shift方法然后通过call把this指向arguments这个维数组
+            //这么做的目的就是为了把传进来的第一个值即Person函数赋值给创建的Constructor
+        obj._proto_ = Constructor.prototype
+        var ret = Constructor.apply(obj, arguments)
+            //如果在这里打印ret 那么结果就是undefined 因为函数并没有给出返回值
+        return typeof ret === 'object' ? ret || obj : obj
+
+    }
+
+
+    function Person(name, age) {
+        this.name = '布兰德';
+        this.age = '22'
+    }
+
+    let p = objectFactory(Person, '布兰', 12)
+        // console.log(p) // { name: '布兰', age: 12 }
+        // console.log(p._proto_);
+</script>
+
+</html>

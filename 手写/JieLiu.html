@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流</title>
+    <style>
+        .node {
+            width: 100px;
+            height: 100px;
+            margin: 100px auto;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="node">1</div>
+
+    <p>
+        节流:触发高频事件，且 N 秒内只执行一次。
+    </p>
+
+</body>
+<script>
+    var node = document.querySelector('.node');
+
+    function getNode(e) {
+        console.log(this, e); //this指向的是node节点即div;e的事件对象指向的是点击事件
+    }
+
+    function throttle(fuc) {
+        var previous = 0;
+        var content, arg;
+        return function() {
+            content = this; //这个this在这里是为了保证后续this始终指向节点
+            arg = arguments;
+            var time = Date.now();
+            if (time - previous > 3000) {
+                fuc.apply(content, arg) //apply方法的第一个参数传递的值代表着this的指向，第二个值就是参数
+                previous = time
+            }
+        }
+    }
+
+    node.onclick = throttle(getNode) //这里点击事件后续拿到的函数是节流函数里返回的一个函数
+</script>
+
+</html>

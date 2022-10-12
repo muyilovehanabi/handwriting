@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apply方法</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    Function.prototype.myApply = function(context, array) {
+
+        var context = context || window
+
+
+
+        let args = array
+        context.fn = this //这里this指向fly函数 但是后面经过obj调用以后就会变成指向obj
+        let res = context.fn(...args)
+        delete context.fn //因为后面我们只需要直到函数指向obj即可，所以要把函数删除
+        return res
+    }
+
+    function fly(a, b) {
+        console.log(a + b);
+        console.log(this); //这里就可以看到this已经指向obj了
+    }
+
+    let obj = {
+        c: 6
+    }
+
+    fly.myApply(obj, [4, 7])
+</script>
+
+</html>

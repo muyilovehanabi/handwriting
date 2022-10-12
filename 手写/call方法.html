@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call方法</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    Function.prototype.myCall = function(obj) {
+
+        var obj = obj || window
+
+
+
+        let args = [...arguments].slice(1) //得到的是数组[4,5]
+
+        obj.fn = this //右边此时的this指向的是add这个函数，通过在obj中创建一个函数来调用add那么this此时指向调用者obj
+
+
+        let result = obj.fn(...args) //通过obj调用“add”函数
+
+
+
+        delete obj.fn //我们只想看到this指向obj 而不想看到多余的东西所以要把fn删除
+
+
+        return result //把获取到的值返回出去
+
+    }
+
+
+    function add(a, b) {
+        console.log(a + b);
+    }
+
+    let obj = {
+        c: 5
+    }
+
+    add.myCall(obj, 4, 5)
+</script>
+
+</html>

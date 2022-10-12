@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖</title>
+    <style>
+        .node {
+            width: 100px;
+            height: 100px;
+            margin: 100px auto;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="node">1</div>
+    <p>
+        防抖:触发高频事件 N 秒后只会执行一次，如果 N 秒内事件再次触发，则会重新计时。
+    </p>
+</body>
+<script>
+    function debounce(fuc, time) {
+        var timeout;
+        var wait = time
+        return function() {
+            var context = this;
+            var arg = arguments
+            clearTimeout(timeout)
+            timeout = setTimeout(function() {
+                fuc.apply(context, arg)
+            }, wait)
+        }
+    }
+
+
+    var node = document.querySelector('.node')
+
+    function Action(e) {
+        console.log(this, e);
+        // console.log(node.innerHTML);
+    }
+    node.onclick = debounce(Action, 5000)
+</script>
+
+</html>

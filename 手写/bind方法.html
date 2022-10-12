@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实现bind方法</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    Function.prototype.myBind = function() {
+        const self = this //this指向调用bind的函数，先用一个函数把它保存一下
+        const arg = [...arguments]
+        const thisValue = arg.shift() //拿到this指向
+
+        return function() { //由于bind函数会返回一个新的函数所以我们返回一个函数
+            return self.apply(thisValue, arg) //
+        }
+    }
+
+    function add(a, b) {
+        console.log(a + b);
+        console.log(this);
+    }
+
+    let obj = {
+        c: 50
+    }
+
+    const adds = add.myBind(obj, 7, 77) //bind方法会返回一个新函数
+    adds()
+</script>
+
+</html>
