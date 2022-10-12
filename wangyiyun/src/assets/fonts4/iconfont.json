@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "993767",
+      "name": "播放_空心",
+      "font_class": "bofangkongxin",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "1621429",
+      "name": "播放暂停",
+      "font_class": "bofangzanting",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "13137514",
+      "name": "上一首未点击",
+      "font_class": "shangyishouweidianji",
+      "unicode": "e727",
+      "unicode_decimal": 59175
+    },
+    {
+      "icon_id": "13137518",
+      "name": "下一首未点击",
+      "font_class": "xiayishouweidianji",
+      "unicode": "e728",
+      "unicode_decimal": 59176
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "68264",
+      "name": "搜索，猫客",
+      "font_class": "sousuo",
+      "unicode": "f00a8",
+      "unicode_decimal": 983208
+    },
+    {
+      "icon_id": "145748",
+      "name": "ktv_填充",
+      "font_class": "ktvtianchong",
+      "unicode": "e6a8",
+      "unicode_decimal": 59048
+    },
+    {
+      "icon_id": "830289",
+      "name": "箭头-左",
+      "font_class": "jiantouzuo",
+      "unicode": "e659",
+      "unicode_decimal": 58969
+    },
+    {
+      "icon_id": "2674928",
+      "name": "箭头 右",
+      "font_class": "jiantouyou",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "21175592",
+      "name": "换肤",
+      "font_class": "huanfu",
+      "unicode": "e623",
+      "unicode_decimal": 58915
+    }
+  ]
+}
